@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,34 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/about', function () {
-//     return 'ini adlaha halaman about';
-// });
-Route::get('/users/{id}', function($id){
-    return "nilai id users adalah " .$id;
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/contact', function(){
-    return 'ini adalah halaman contact';
-})->name(name: 'contact');
+require __DIR__.'/auth.php';
 
-Route::get('/user/{name?}',function($name = "guest"){
-    return "hello, " .$name;
-});
 
-Route::prefix('manage')->group(function(){
-    Route::get('/edit', function() {
-        return 'ini adalah  halaman manage edit';
-    });
-    Route::get('/profile', function(){
-        return 'ini adalah halaman profile';
-    });
-    Route::get('/settings', function(){
-        return 'ini adalah halaman settings';
-    });
-});
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
