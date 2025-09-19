@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +35,10 @@ require __DIR__.'/auth.php';
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+Route::get('/rahasigma', function () {
+    return 'this is a secret page';
+    // return view('dashboard');
+})->middleware(['auth', 'verified', 'RoleCheck:admin'])->name('rahasigma');
+
+Route::get('/produk',[ProductController::class, 'index']);
