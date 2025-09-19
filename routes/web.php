@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
 
 
 Route::get('/contact', function () {
@@ -42,3 +42,8 @@ Route::get('/rahasigma', function () {
 })->middleware(['auth', 'verified', 'RoleCheck:admin'])->name('rahasigma');
 
 Route::get('/produk',[ProductController::class, 'index']);
+
+Route::get('/route_cont/{id}', [ProductController::class, 'show']);
+
+
+require __DIR__.'/auth.php';
