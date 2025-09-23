@@ -43,7 +43,10 @@ Route::get('/rahasigma', function () {
 
 Route::get('/produk',[ProductController::class, 'index']);
 
-Route::get('/route_cont/{id}', [ProductController::class, 'show']);
 
+Route::middleware(['auth', 'role:admin,owner'])->group(function () {
+    Route::get('/products/{angka}', [ProductController::class, 'index'])
+        ->name('products.index');
+});
 
 require __DIR__.'/auth.php';
