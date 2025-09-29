@@ -11,10 +11,9 @@ class UtsController extends Controller
      */
     public function index()
     {
-        // $isi_data = "Data dari controller";
-        // return view('turunan_uts', compact('isi_data'));
-        return view('turunan_uts');
+        return view('index');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -35,11 +34,16 @@ class UtsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $show)
     {
-        //
+        if($show === 'pemrograman_web'){
+            return view('pemrograman_web');
+        } elseif($show === 'database'){
+            return view('database');
+        } else {
+            abort(404);
+        }
     }
-
     /**
      * Show the form for editing the specified resource.
      */

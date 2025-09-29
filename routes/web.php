@@ -23,6 +23,9 @@ Route::get('/', function () {
 
 Route::get('/uts', [UtsController::class, 'index'])->name('uts');
 
+Route::get('/uts/{show}', [UtsController::class, 'show'])->name('uts.show');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
