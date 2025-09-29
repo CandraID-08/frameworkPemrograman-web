@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTS</title>
+    <title>UTS - @yield('title')</title>
 </head>
 <body>
-    <p> ini uts</p>
+    <div>
+        @yield('content')
+    </div>
 </body>
 </html>

@@ -11,7 +11,9 @@ class UtsController extends Controller
      */
     public function index()
     {
-        return view('uts');
+        // $isi_data = "Data dari controller";
+        // return view('turunan_uts', compact('isi_data'));
+        return view('turunan_uts');
     }
 
     /**
