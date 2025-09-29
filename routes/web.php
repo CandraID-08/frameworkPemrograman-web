@@ -19,6 +19,11 @@ Route::get('/', function () {
     return view('section_utama');
 });
 
+Route::get('/uts', function () {
+    return view('uts');
+})->name('uts');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -46,5 +51,7 @@ Route::middleware(['auth', 'role:admin,owner'])->group(function () {
     Route::get('/products/{angka}', [ProductController::class, 'index'])
         ->name('products.index');
 });
+
+
 
 require __DIR__.'/auth.php';
