@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UtsController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +21,7 @@ Route::get('/', function () {
     return view('section_utama');
 });
 
-Route::get('/uts', function () {
-    return view('uts');
-})->name('uts');
+Route::get('/uts', [UtsController::class, 'index'])->name('uts');
 
 
 Route::get('/dashboard', function () {
