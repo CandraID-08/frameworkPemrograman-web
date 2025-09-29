@@ -9,10 +9,13 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($angka)
-    {
-        $hasil = $angka + 10;       // gunakan $angka dari route
-        return view('view', compact('hasil'));
+    // public function index($angka)
+    // {
+    //     // $hasil = $angka + 10;       // gunakan $angka dari route
+    //     // return view('view', compact('hasil'));
+    // }
+    public function index(){
+        return view('utama');
     }
 
     /**
