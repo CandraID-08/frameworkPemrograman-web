@@ -11,6 +11,9 @@ class Product extends Model
 
     protected $table = 'product';
 
+    // fungsinya adalah menimpa aturan pilih primary key default 'id'
+    // protected $primaryKey = 'id_product';
+
     //  /**
     //  * The attributes that are mass assignable.
     //  *

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -99,6 +100,9 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // $data = Product::findOFail($id);
+        // $data->delete();
+        DB::table('product')->where('id', $id)->delete();
+        return redirect()->back()->with('success', 'Product deleted successfully!');
     }
 }
