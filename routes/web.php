@@ -56,6 +56,7 @@ Route::middleware(['auth', 'role:admin,owner'])->group(function () {
 });
 
 
+Route::get('/product/export/excel', [ProductController::class, 'exportExcel'])->name('product.export.excel');
 
 
 Route::post('/product',[ProductController::class, 'store'])->name('product-store');
@@ -67,6 +68,7 @@ Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('pro
 //// Route::post('/product',[ProductController::class, 'store'])->name('product-store');
 Route::get('/product', [ProductController::class, 'index'])->name('product-index');
 // Route::post()
+
 
 
 require __DIR__.'/auth.php';

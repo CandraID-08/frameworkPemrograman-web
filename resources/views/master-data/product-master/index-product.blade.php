@@ -9,12 +9,22 @@
 
     <div class="container p-4 mx-auto">f
         <div class="overflow-x-auto">
-            <a href="{{ route('product-create')}}">
-                <button
-                    class="px-6 py-4 text-white bg-green-500 border border-green-500 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
-                    Add product data
-                </button>
-            </a>
+            <div class="flex items-center gap-2">
+                <a href="{{ route('product-create') }}">
+                    <button
+                        class="px-6 py-4 text-white bg-green-500 border border-green-500 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        Add product data
+                    </button>
+                </a>
+
+                <!-- Export to Excel button -->
+                <a href="{{ route('product.export.excel') }}">
+                    <button
+                        class="px-4 py-2 text-white bg-blue-600 border border-blue-600 rounded-lg shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        Export Excel
+                    </button>
+                </a>
+            </div>
             <table class="min-w-full border border-collapse border-gray-200">
                 <thead>
                     <tr class="bg-gray-100">
@@ -63,10 +73,10 @@
 
 
                     <!-- Tambahkan baris lainnya sesuai kebutuhan -->
-                </tbody>
+                <!-- </tbody>
             </table>
         </div>
-    </div>
+    </div> -->
 
 
     <script>
